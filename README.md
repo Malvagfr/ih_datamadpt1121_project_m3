@@ -13,8 +13,13 @@ The goal of this project is the prediction of the price of diamonds based on the
 - Color
 - Cut:
 - Clarity: a lack of internal defects called inclusions
-For doing this we will
-The accuracy of the prediction is meassure using the RMSE
+
+For doing this we will:
+
+- This problem requires Supervised Learning as there is an expected output (i.e the diamond's price).
+- Predicting the price of a diamond from dataset is a Regression Task. More specifically, a Multivariate Regression Task.
+- We will be using the Batch Learning technique since the data is not live-fed from a source.
+- The accuracy of the prediction is meassure using The Root Mean Square Error, RMSE (typical for Regression tasks).
 
 ## **👩🏻‍💻 Resources:**
 
