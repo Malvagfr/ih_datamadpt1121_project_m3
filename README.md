@@ -37,7 +37,7 @@ The prediction is done using:
     ├── code
     │   ├── 0_EDA.ipynb
     │   └── 1_Model_Training_cat_coding_target_coding_mean_XGB
-    │   └── 2_Model_Training_cat_coding_target_coding_mean_XGB
+    │   └── 2_Model_Training_cat_coding_target_coding_mean_std_XGB.ipynb
     └── data
         ├── data_extractor.ipynb
         ├── diamonds_train.db
@@ -51,7 +51,7 @@ The prediction is done using:
  - **code**: this folder contains the jupyter notebooks that perform the caldulation of diamond's price predition:
     - 0_EDA.ipynb
     - 1_Model_Training_Catcodes_targetcodes_XGB.ipynb
-    - 1_Model_Training_Catcodes_targetcodes_XGB.ipynb 
+    - 2_Model_Training_cat_coding_target_coding_mean_std_XGB.ipynb
  - **data**: in this folder all data files are stored:
     - Input files (train and test data) needed for the analysis.
     - data_extractor.ipynb needed for extracting the train set from diamonds_train.db in csv.
@@ -79,8 +79,8 @@ Conclussions:
 | Yes  | No | No | Yes | No | No| No |RandomForestRegressor | 491 | 581 | 583 |
 | Yes  | No | No | Yes | No | No| No |XGBRegressor | 390 | 538 | 543 |
 | **Yes**  | No | **No** | **Yes** | **Yes** | **No**| **No** | **XGBRegressor** | **447** | **529** | **528** |
-| Yes  | No | No | Yes | Yes | No| Yes |XGBRegressor | 395 | 529 | 532 |
-| **Yes**  | No | **No** | **Yes** | **Yes** | **Yes**| **No** |**XGBRegressor** | **406** | **529** | **529** |
+| Yes  | No | No | Yes | Yes | No| Yes | XGBRegressor | 395 | 529 | 532 |
+| Yes  | No | No | Yes | Yes | Yes| No | XGBRegressor | 406 | 529 | 529 |
 | Yes  |  Yes | No | Yes | Yes | Yes | No |XGBRegressor | 447 | 529 | 532 |
  
 
@@ -89,15 +89,15 @@ Conclussions:
 [*1_Model_Training_cat_coding_target_coding_mean_XGB*](https://github.com/Malvagfr/ih_datamadpt1121_project_m3/blob/main/code/1_Model_Training_cat_coding_target_coding_mean_XGB.ipynb)
 
 - Model choosen is **XGBRegressor**
-- **All features are considered** in the analysis (XGB has a good perform even when there are correlated features or with weak correlation with the target).
+- **All features are considered** in the analysis (XGB has a good perform even when there are correlated features or weak correlation with the target).
 - Data preparation is not needed as:
     - There are not null values.
     - There are few zero values (they are present in train/test and XGB can predict with 0 values)
     - There are few **outliers**, as is not possible to exclude them from the test, it's better to **keep** them so the model can learn.
-- **Feature scalling** does not provide better results (data range is slight).
+- **Feature scaling** does not provide better results (data range is slight).
 - **Target encoding using price's mean** seems to reduce error variance.
 - **Target encoding using price's std** does not seems to provide better results.
-- **Cross target encoding** not seems to provide better results (it cause overfitting).
+- **Cross target encoding** does not seems to provide better results (it cause overfitting).
 - **Category encoding** performs better that **one hot encoding** when using tree decission models.
 - **Stopping the model from growth** customizing model's hyperparameters seems to avoid overfitting.
 
