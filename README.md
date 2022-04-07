@@ -71,14 +71,19 @@ Conclussions:
   - Carat (diamond's weight) has the strongest correlation with the price (table and depht have a week correlation). 
   
   
-## **🔧 Compare options Performance**    
+## **🔧 Options Performance**    
 
 
-
-| - | - | - | - | - | - | - | - |
-|---------|----------|-------|------------|----------|-------|------------|----------|
-| -  | - | - | - | - |- | - | - |
+| Outliers | Scaling | One hot encod | Cat encod | Target encod Mean  |Targ encod Std  | Cross Targ encod | Model | RMSE Train | RMSE Val | RMSE Test |
+|---------|----------|-------|------------|----------|-------|------------|----------|----------|----------|----------|
+| Yes  | No | No | Yes | No | No| No |RandomForestRegressor | 491 | 581 | 583 |
+| Yes  | No | No | Yes | No | No| No |XGBRegressor | 390 | 538 | 543 |
+| **Yes**  | No | **No** | **Yes** | **Yes** | **No**| **No** | **XGBRegressor** | **447** | **529** | **528** |
+| Yes  | No | No | Yes | Yes | No| Yes |XGBRegressor | 395 | 529 | 532 |
+| **Yes**  | No | **No** | **Yes** | **Yes** | **Yes**| **No** |**XGBRegressor** | **406** | **529** | **529** |
+| Yes  |  Yes | No | Yes | Yes | Yes | No |XGBRegressor | 447 | 529 | 532 |
  
+
 ## **🙌 Winner solution: conclusions**   
 
 [*1_Model_Training_cat_coding_target_coding_mean_XGB*](https://github.com/Malvagfr/ih_datamadpt1121_project_m3/blob/main/code/1_Model_Training_cat_coding_target_coding_mean_XGB.ipynb)
